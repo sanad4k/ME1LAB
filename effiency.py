@@ -45,6 +45,8 @@ for x in load_values:
 
 # Convert results to a DataFrame for a structured table
 df = pd.DataFrame(results)
+df.to_csv("./csvfiles/predeterminationEfficiency.csv", index=False)
+
 
 # Plot efficiency vs power output for each power factor
 def plot_efficiency_vs_power_output(df, power_factors):
@@ -65,7 +67,7 @@ def plot_efficiency_vs_power_output(df, power_factors):
     plt.show()
 
     # Optionally save the plot as an image
-    plt.savefig("efficiency_vs_power_output.png")
+    plt.savefig("./pngfiles/efficiency_vs_power_output.png")
     print("\nPlot saved as 'efficiency_vs_power_output.png'")
 
 def plot_efficiency_vs_load(df, power_factors):
@@ -86,7 +88,7 @@ def plot_efficiency_vs_load(df, power_factors):
     plt.show()
 
     # Optionally save the plot as an image
-    plt.savefig("efficiency_vs_load.png")
+    plt.savefig("./pngfiles/efficiency_vs_load.png")
     print("\nPlot saved as 'efficiency_vs_load.png'")
 plot_efficiency_vs_power_output(df, power_factors)
 plot_efficiency_vs_load(df, power_factors)

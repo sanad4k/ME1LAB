@@ -55,7 +55,7 @@ for x in load_values:
 df = pd.DataFrame(results)
 
 # Save the table to a CSV file
-df.to_csv("voltage_regulation_results.csv", index=False)
+df.to_csv("./csvfiles/predeterminationVoltageregulation.csv", index=False)
 print("Results saved to 'voltage_regulation_results.csv'")
 
 # Plot voltage regulation vs load for each power factor
@@ -77,5 +77,5 @@ plt.tight_layout()
 plt.show()
 
 # Optionally save the plot as an image
-plt.savefig("voltage_regulation_plot.png")
+plt.savefig("./pngfiles/voltage_regulation_plot.png")
 print("Plot saved as 'voltage_regulation_plot.png'")
