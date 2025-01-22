@@ -33,15 +33,7 @@ for pf in power_factors:
         })
 
 i = 0
-for x in load_values:
-    print(results[i]["Efficiency (%)"]) 
-    i+=1
-i = 0
-print("------------------------------------------------------ ")
-for x in load_values:
-    print(results[i]["Load (x)"]) 
-    i+=1
-# print(results)
+
 
 # Convert results to a DataFrame for a structured table
 df = pd.DataFrame(results)
