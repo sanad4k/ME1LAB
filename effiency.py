@@ -47,22 +47,46 @@ for x in load_values:
 df = pd.DataFrame(results)
 
 # Plot efficiency vs power output for each power factor
-plt.figure(figsize=(10, 6))
-for pf in power_factors:
-    subset = df[df["Power Factor (pf)"] == pf]
-    plt.plot(subset["Power Output (Po)"], subset["Efficiency (%)"], label=f"PF = {pf}")
+def plot_efficiency_vs_power_output(df, power_factors):
+    plt.figure(figsize=(10, 6))
+    for pf in power_factors:
+        subset = df[df["Power Factor (pf)"] == pf]
+        plt.plot(subset["Power Output (Po)"], subset["Efficiency (%)"], label=f"PF = {pf}")
 
-# Add labels, legend, and title
-plt.title("Efficiency vs Power Output", fontsize=16)
-plt.xlabel("Power Output (Po)", fontsize=14)
-plt.ylabel("Efficiency (%)", fontsize=14)
-plt.legend(title="Power Factor", fontsize=12)
-plt.grid(True)
-plt.tight_layout()
+    # Add labels, legend, and title
+    plt.title("Efficiency vs Power Output", fontsize=16)
+    plt.xlabel("Power Output (Po)", fontsize=14)
+    plt.ylabel("Efficiency (%)", fontsize=14)
+    plt.legend(title="Power Factor", fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
 
-# Show the plot
-plt.show()
+    # Show the plot
+    plt.show()
 
-# Optionally save the plot as an image
-plt.savefig("efficiency_vs_power_output.png")
-print("\nPlot saved as 'efficiency_vs_power_output.png'")
+    # Optionally save the plot as an image
+    plt.savefig("efficiency_vs_power_output.png")
+    print("\nPlot saved as 'efficiency_vs_power_output.png'")
+
+def plot_efficiency_vs_load(df, power_factors):
+    plt.figure(figsize=(10, 6))
+    for pf in power_factors:
+        subset = df[df["Power Factor (pf)"] == pf]
+        plt.plot(subset["Load (x)"], subset["Efficiency (%)"], label=f"PF = {pf}")
+
+    # Add labels, legend, and title
+    plt.title("Efficiency vs Load", fontsize=16)
+    plt.xlabel("Load (x)", fontsize=14)
+    plt.ylabel("Efficiency (%)", fontsize=14)
+    plt.legend(title="Power Factor", fontsize=12)
+    plt.grid(True)
+    plt.tight_layout()
+
+    # Show the plot
+    plt.show()
+
+    # Optionally save the plot as an image
+    plt.savefig("efficiency_vs_load.png")
+    print("\nPlot saved as 'efficiency_vs_load.png'")
+plot_efficiency_vs_power_output(df, power_factors)
+plot_efficiency_vs_load(df, power_factors)
